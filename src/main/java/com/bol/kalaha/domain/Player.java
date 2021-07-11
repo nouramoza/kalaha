@@ -4,30 +4,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Player {
-    public static int turn;
-    private int smallPit[] = new int[6];
-    private int bigPit;
+    public static int turn = 0;
+//    private int smallPit[] = new int[6];
+//    private int bigPit;
 
     private String name;
-    private int noOfSets;
-    private int noOfWins;
-    private int noOfPots;
-
-    public int[] getSmallPit() {
-        return smallPit;
-    }
-
-    public void setSmallPit(int[] smallPit) {
-        this.smallPit = smallPit;
-    }
-
-    public int getBigPit() {
-        return bigPit;
-    }
-
-    public void setBigPit(int bigPit) {
-        this.bigPit = bigPit;
-    }
+    private int noOfSets = 0;
+    private int noOfWins = 0;
+    private int noOfPots = 0;
 
     public String getName() {
         return name;

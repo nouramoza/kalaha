@@ -35,20 +35,20 @@ public class KalahaResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
     @GetMapping("/kalaha")
-    public Board start() throws URISyntaxException, BadRequestAlertException {
-//        log.debug("REST request to start Game : {}", game);
-//        if (fruit.getId() != null) {
-//            throw new BadRequestAlertException("A new fruit cannot already have an ID", ENTITY_NAME, "idexists");
-//        }
-//        Board result = kalahaService.start();
-//        return ResponseEntity.created(new URI("/api/kalaha/" + result.getId()))
-//                .headers(HeaderUtil.createEntityCreationAlert(applicationName,
-//                        false, ENTITY_NAME, result.getId().toString()))
-//                .body(result);
-
-
+    public Board start() {
         log.debug("REST request to get all Fruits");
         return kalahaService.start();
     }
+
+    @PostMapping("/kalaha/{p1}/{p2}/{board}")
+    public ResponseEntity<Game> initializeGame(@PathVariable String p1,
+                                               @PathVariable String p2,
+                                               @RequestBody Board board) throws URISyntaxException, BadRequestAlertException {
+        Game result = kalahaService.initialize(p1, p2, board);
+        return ResponseEntity.created(new URI("/api/kalaha/" + result.getId()))
+                .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+                .body(result);
+    }
+
 
 }

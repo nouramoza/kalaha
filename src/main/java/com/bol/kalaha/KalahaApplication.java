@@ -16,10 +16,10 @@ public class KalahaApplication {
 	public static void main(String[] args) throws URISyntaxException, BadRequestAlertException {
 		System.out.println("SSSS");
 		ConfigurableApplicationContext context = SpringApplication.run(KalahaApplication.class, args);
-		Player player = context.getBean(Player.class);
+//		Player player = context.getBean(Player.class);
 
-		KalahaResource kalahaResource = context.getBean(KalahaResource.class);
-		Board board = kalahaResource.start();
+//		KalahaResource kalahaResource = context.getBean(KalahaResource.class);
+//		Board board = kalahaResource.start();
 
 	}
 
